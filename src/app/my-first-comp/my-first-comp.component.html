@@ -38,7 +38,8 @@
     <!-- Remember that for the form submit to work, it needs to have a type="submit" -->
   </form>
 
-  <table *ngIf="isSubmitted"> <!-- Conditionals -->
+  <!-- Conditionals -->
+  <!-- <table *ngIf="isSubmitted"> 
     <thead>
       <tr>
         <th>#</th>
@@ -48,19 +49,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let msg of messages; let i = index" > <!-- For loops / getting each iteration's index  1:33:24 https://www.youtube.com/watch?v=VTEDh2pNSBQ -->
+      <tr *ngFor="let msg of messages; let i = index" > -> For loops / getting each iteration's index
         <td>{{ i + 1 }}</td>
         <td>{{msg.name}}</td>
         <td>{{msg.email}}</td>
         <td>{{msg.message}}</td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
 
-  <!-- <div *ngIf="isSubmitted" class="flex-container">
-    <h3>Form Data:</h3>
-    <p><strong>Name:</strong> {{ name }}</p>
-    <p><strong>Email:</strong> {{ email }}</p>
-    <p><strong>Message:</strong> {{ message }}</p>
-  </div> -->
+  <div class="flex-container">
+    <app-message-details
+      *ngFor="let msg of messages; let i = index"
+      [message]="msg"
+      [index]="i"
+      (delete)="deleteMessage($event)"
+    ></app-message-details>
+  </div>
 </div>

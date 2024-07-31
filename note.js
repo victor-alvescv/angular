@@ -61,6 +61,25 @@ UNDERSTANDING COMPONENTS:
 . Class: The class contains the component's logic and data. It is written in TS and includes properties, methods, and lifecycle hooks;
 . Metadata: The metadata is defined using decorators. It provides Angular with information about the component, such as it's selector, template, styles, and dependencies;
 
-CREATING AND USING COMPONENTS: Use the Angular CLI to generate a new component("ng generate component [component-name]")
+CREATING AND USING COMPONENTS: Use the Angular CLI to generate a new component("ng generate component [component-name]");
+
+COMPONENT COMMUNICATION (INPUT AND OUTPUT) 1:34:30
+
+UNDERSTANDING SERVICES:
+
+. In Angular, services are reusable and injectable classes that provide functionality and data to components throughout an application;
+
+. Services are responsible for handling tasks such as data retrieval from API's, sharing data between components, and performing business logic;
+
+. Services are typically used to abstract away the implementation details of specific functionality, keeping the components lean and focused on their primary responsibilities. They help...
+promote code reusability, modularity, and testability;
+
+CREATING AND USING SERVICES -> "ng generate service service-name" or "ng generate service services/service-name", to create a folder called services;
+
+Dependency Injection: 
+Modularity: Dependencies can be managed and resolved independently, allowing for easier code organization and separation of concerns;
+Reusability: Services can be shared and reused across multiple components, reducing code duplication;
+Testability: Dependencies can be easily mocked or replaced during testing, enabling effective unit testing;
+Loose Coupling: Components and services depend on abstractions(interfaces) rather than concrete implementations, resulting in loosely coupled code that is easier to maintain and modify;
 
 */
