@@ -1,0 +1,66 @@
+<div class="form-container">
+  <h2>Simple Form</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        (keydown)="onConsole()"
+        name="name"
+        [(ngModel)]="name"
+        required
+      />
+      <!-- Remember the name="x" attribute is required for proper form validation and tracking! -->
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+      />
+      <!-- [(ngModel)] -> used for two-way data binding, similar to v-model in Vue -->
+    </div>
+    <div class="form-group">
+      <label for="message">Message:</label>
+      <textarea
+        id="message"
+        rows="4"
+        name="message"
+        [(ngModel)]="message"
+        required
+      ></textarea>
+    </div>
+    <button (click)="onConsole()" type="submit">Submit</button>
+    <!-- Remember that for the form submit to work, it needs to have a type="submit" -->
+  </form>
+
+  <table *ngIf="isSubmitted"> <!-- Conditionals -->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let msg of messages; let i = index" > <!-- For loops / getting each iteration's index  1:33:24 https://www.youtube.com/watch?v=VTEDh2pNSBQ -->
+        <td>{{ i + 1 }}</td>
+        <td>{{msg.name}}</td>
+        <td>{{msg.email}}</td>
+        <td>{{msg.message}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- <div *ngIf="isSubmitted" class="flex-container">
+    <h3>Form Data:</h3>
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Message:</strong> {{ message }}</p>
+  </div> -->
+</div>
