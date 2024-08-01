@@ -1,0 +1,23 @@
+<div class="menu">
+  <ul>
+    <li><a routerLink="/home">Home</a></li>
+    <li><a href="javascript:void(0)" (click)="navigateToAbout()">About</a></li>
+    <!-- by typing javascript:void(0) as the href we make the a tag to have the same behavior, but it doesn't do anything -->
+  </ul>
+</div>
+
+<!-- 
+
+. The home <li> will use the routerLink and the about one will use the programmally way to navigate between routes;
+
+routerLink: For this way to work we need to inside the a tag put the routerLink and after it the "/whatever route we created in app.routes.ts and want to send to it". Important step is to...
+import the RouterModule inside the menu.component.ts and put it inside the imports array, so this can work;
+
+@angular/router: In this case we need to create a click event inside the a tag binding it to a method in this case called navigateToAbout, and we need to create it inside the...
+menu.component.ts. With the method created, in order to navigate programmatically, we need to inject the router service, so for that we need to create the constructor with a private router...
+of type "Router"(from @angular/router) -> core service in Angular that enables programmatic navigation.
+
+. Now inside the created method we tag the router(this.router) and use the navigate method from the Angular Router service(is part of the of the "Router" class from @angular/router), and pass...
+inside it an array with the path we want to navigate to;
+
+-->

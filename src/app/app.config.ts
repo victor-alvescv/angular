@@ -19,4 +19,6 @@ export const appConfig: ApplicationConfig = {
   ],
 };
 
+// n:44 -> Inside the providers array, in the app config, we can add MyFirstService(IMPORT ASWELL), and it will work again;
+
 // Provides application-wide configuration settings;

@@ -82,4 +82,54 @@ Reusability: Services can be shared and reused across multiple components, reduc
 Testability: Dependencies can be easily mocked or replaced during testing, enabling effective unit testing;
 Loose Coupling: Components and services depend on abstractions(interfaces) rather than concrete implementations, resulting in loosely coupled code that is easier to maintain and modify;
 
+CONFIGURING ROUTES -> Angular's routing allows you to define and configure routes for different views or components in your app. Routing enables navigation between different pages or sections...
+of your application without requiring a full page reload; (go to the app.routes.ts file)
+
+ROUTER OUTLET, ROUTER LINKS, AND NAVIGATION -> 
+
+. The router-outlet directive is a placeholder that renders the component associated with the active route. It acts as a viewport for the content...
+of the routed components;
+
+e.g. "<router-outlet />"
+
+. To navigate between routes, Angular provides the routerLink directive, which allows you to create links to different routes in your application. Here's an example of using routerLink:
+
+e.g. "<a routerLink="/about">About</a>" or "<a [routerLink]="['/user', userId]">User Profile</a> -> ['/user', userId] === /user/${userId}
+
+. To navigate programmatically in the component class, you can use the Router service provided by Angular router;
+
+STEP BY STEP OF HOW WE MADE THE ROUTE TO WORK ->
+
+1. We created a new component called menu and edit the html and css, with two <li>'s with a link inside it, the Home Page(just display the my-first-comp component), and the About page...
+link(should display the about component that we'll create); 
+2. Going to the app.component.html we can make sure that we are only left with the router-outlet(so we can display what is related with the route in question), and all the components that...
+we want to exist in any page, in this case we only want the app menu(navbar) to stay in any case;
+3. Let's create the About Component now(new g c about), and add the css and html for it. Inside the app.routes.ts we can now create the routes for the home and the about page(check the file...
+to see how's done), linking both to a specific component(don't forget to import it). Now the /home and the /about have a page, with the navbar and the component according to it displayed. But...
+the menu is not working yet(go to menu.component.html);
+
+HOW TO GET THE PARAM(PATH VARIABLE) OF THE ROUTE ->
+
+1. Inside the about.component.html we created a h3 with a param variable, that we later declared inside the about.component.ts;
+2. Now we want to get the path variable, to do that we create a new route inside app.routes.ts, and to make sure Angular understand that the username in about/username is a path variable, we...
+add a ":" before it;
+3. To get that variable/parameter, inside the about.component.ts create a constructor and inject a private service(activatedRoute) of type ActivatedRoute(a service provided by Angular's...
+@angular/router package that provides information about the route associated with the component where it is injected);
+4. Now in the component's class we are going to "implement" a interface called OnInit -> OnInit interface is used to define a lifecycle hook that is called after Angular has initialized all...
+data-bound properties of a directive or component. It provides a way to execute custom initialization logic once the component's inputs are set and the component is fully initialized.
+5. You need to import onInit from the @angular/core, declare it in the component's class, and implement it by creating a method called "ngOnInit" that will perform initialization logic after...
+Angular has set the component’s input properties and the component is fully created;
+6. More Info inside the about.component.ts;
+
+NOW QUERY PARAMS ->
+
+1. if we add this after the :username(it can be the word course for this) ?lastname=jv&course=angular -> so now the url is = http://localhost:4200/about/course?lastname=jv&course=angular;
+2. In this case we are adding to the queryParams object inside the snapshot two keys(course: "angular", lastname: "jv"). Now we are going to display these;
+3. Inside the about.component.ts we declare a new variable called queryParam and inside the ngOnInit we set that variable to the queryParam course value;
+4. And like that, we can use the query param values in the html;
+
+ANGULAR HTTPCLIENT -> 
+
+1. After typing "ng g s services/api/products/Product" in the terminal we created inside the services folder a folder called api that has a folder called products with the product.services;
+2. Inside the service
 */

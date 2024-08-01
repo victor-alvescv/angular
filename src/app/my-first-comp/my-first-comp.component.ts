@@ -20,6 +20,18 @@ export class MyFirstCompComponent {
 
   // YOU CANNOT ASSIGN VALUES TO COMPONENT PROPERTIES DIRECTLY OUTSIDE A METHOD OR A CONSTRUCTOR
 
+  /* 
+  
+  Property Injection -> private service: MyFirstService = inject(MyFirstService) ---> inject must be imported;
+  
+  constructor() {
+    this.messages = this.service.getAllMessages();
+    this.isSubmitted = true;
+  }
+
+  */
+
+  // Constructor Injection ->
   constructor(private service: MyFirstService) {
     this.messages = this.service.getAllMessages();
     // Setting the messages from "this" file to the service(MyFirstService) getAllMessages() that returns all the messages created in the my-first.service.ts file;
