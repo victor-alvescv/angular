@@ -1,0 +1,15 @@
+<div class="product-card">
+    <img class="product-image" [src]="product.image" [attr.alt]="product.title" /> <!-- [attr.alt] === attribute binding like id, class, label, href..., [src] === property binding -->
+    <!-- the [] is used for property binding, tells Angular to bind the value of product.image to the src property of the img element  -->
+    <div class="product-details">
+      <h3 class="product-title">{{product.title}}</h3>
+      <p class="product-price">{{product.price}}</p>
+      <p class="product-description">{{product.description}}</p>
+      <p class="product-category">{{product.category}}</p>
+      <div class="product-rating">
+        <span class="rating-value">{{product.rating?.rate}}</span>
+        <span class="rating-count">{{product.rating?.count}} reviews</span>
+      </div>
+    </div>
+  </div>
+  
