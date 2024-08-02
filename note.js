@@ -131,5 +131,6 @@ NOW QUERY PARAMS ->
 ANGULAR HTTPCLIENT -> 
 
 1. After typing "ng g s services/api/products/Product" in the terminal we created inside the services folder a folder called api that has a folder called products with the product.services;
-2. Inside the service
+2. Inside the service check how it works!
+
 */

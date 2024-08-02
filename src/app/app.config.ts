@@ -5,12 +5,14 @@ import { provideRouter } from '@angular/router';
 // provideRouter: A function that sets up routing for the application. It configures the router with the routes defined in app.routes.ts;
 
 import { routes } from './app.routes'; // Imports the routing configuration, which contains the route definitions for the application;
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   // The appConfig object configures various aspects of the Angular application. It is passed to the bootstrapApplication function to set up the application;
   // ApplicationConfig is used to type the configuration object. This ensures that the object adheres to the expected structure for Angular's application configuration;
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
+    provideHttpClient(),
     // provideZoneChangeDetection: Configures change detection in Angular;
     // eventCoalescing: true: Enables event coalescing, which reduces the number of change detection cycles triggered by events;
     provideRouter(routes),

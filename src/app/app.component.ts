@@ -1,7 +1,8 @@
-import { Component } from '@angular/core'; // Imports the Component decorator from Angular's core module, which is used to define an Angular component;
+import { Component, OnInit } from '@angular/core'; // Imports the Component decorator from Angular's core module, which is used to define an Angular component;
 import { RouterOutlet } from '@angular/router';
-import { MyFirstCompComponent } from "./my-first-comp/my-first-comp.component";
-import { MenuComponent } from "./menu/menu.component"; // Is used in the template(html) to render routed components.
+import { MyFirstCompComponent } from './my-first-comp/my-first-comp.component';
+import { MenuComponent } from './menu/menu.component'; // Is used in the template(html) to render routed components.
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
